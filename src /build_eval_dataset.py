@@ -3,12 +3,11 @@ import sys
 import re
 import json
 import random
-
+from ingest import extract_and_chunk_pdfs
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(CURRENT_DIR) if os.path.basename(CURRENT_DIR) == "src" else CURRENT_DIR
 sys.path.insert(0, CURRENT_DIR)
 
-from ingestion import extract_and_chunk_pdfs
 
 def extract_technical_query(text: str, idx: int) -> str:
     """Genera consultas difíciles: mitad enfocadas en acrónimos/cifras y mitad en conceptos cortos."""
