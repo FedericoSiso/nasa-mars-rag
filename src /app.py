@@ -1,40 +1,13 @@
-﻿import os
-import streamlit as st
-
-# 1. Importa la función desde ingestion.py
-from ingestion import extract_and_chunk_pdfs, build_vector_store
-
-# 2. Define la ruta de la carpeta de PDFs antes de usarla
-pdf_folder = "data"  # o la ruta relativa que estés utilizando
-
-# 3. Ahora sí, llama a la función de forma segura
-chunks = extract_and_chunk_pdfs(pdf_folder)
+import os
 import sys
 import time
+import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 
-# 1. Primero ejecutas la extracción para poblar la variable 'chunks'
-chunks = extract_and_chunk_pdfs(pdf_folder)
-
-# 2. Recién después puedes evaluarla de forma segura
-if not chunks:
-    st.warning("⚠️ No se encontraron fragmentos o PDFs en la carpeta de datos. Por favor, añade informes técnicos de la NASA.")
-else:
-    # Continuar con la construcción del vector store y motores RAG...
-    vectorstore = build_vector_store(chunks, persist_dir=db_path)
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(CURRENT_DIR) if os.path.basename(CURRENT_DIR).lower() == "src" else CURRENT_DIR
-SRC_DIR = os.path.join(PROJECT_ROOT, "src")
-sys.path.insert(0, SRC_DIR)
-
-from ingestion import extract_and_chunk_pdfs, build_vector_store
-from generator import SYSTEM_PROMPT, format_docs_with_metadata, get_llm, build_extractive_fallback
-from retriever import BasicVectorRetriever, HybridRRFRetriever, ProductionRerankRetriever
-
 # -------------------------------------------------------------------
-# CONFIGURACIÓN DE PÁGINA
+# 0. CONFIGURACIÓN DE PÁGINA (DEBE SER EL PRIMER COMANDO STREAMLIT)
 # -------------------------------------------------------------------
 st.set_page_config(
     page_title="NASA | Portal de Investigación y Telemetría NTRS",
@@ -42,6 +15,23 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# -------------------------------------------------------------------
+# CONFIGURACIÓN DE RUTAS Y PATH (TOLERANTE A "src " CON ESPACIO)
+# -------------------------------------------------------------------
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = (
+    os.path.dirname(CURRENT_DIR)
+    if os.path.basename(CURRENT_DIR).strip().lower() == "src"
+    else CURRENT_DIR
+)
+
+if CURRENT_DIR not in sys.path:
+    sys.path.insert(0, CURRENT_DIR)
+
+from ingestion import extract_and_chunk_pdfs, build_vector_store
+from generator import SYSTEM_PROMPT, format_docs_with_metadata, get_llm, build_extractive_fallback
+from retriever import BasicVectorRetriever, HybridRRFRetriever, ProductionRerankRetriever
 
 # -------------------------------------------------------------------
 # SISTEMA DE DISEÑO NASA.GOV (CSS ALTO CONTRASTE & MINIMALISTA)
@@ -276,12 +266,20 @@ st.markdown("""
 # -------------------------------------------------------------------
 @st.cache_resource(show_spinner="Sincronizando base vectorial NTRS, índice BM25 RRF y Cross-Encoder...")
 def load_rag_engine_v2():
-    pdf_path = os.path.join(PROJECT_ROOT, "data", "raw")
+    # Busca primero en data/raw; si no hay PDFs allí, busca en data/
+    raw_path = os.path.join(PROJECT_ROOT, "data", "raw")
+    fallback_path = os.path.join(PROJECT_ROOT, "data")
     db_path = os.path.join(PROJECT_ROOT, "chroma_db")
 
-    chunks = extract_and_chunk_pdfs(pdf_path)
+    chunks = extract_and_chunk_pdfs(raw_path)
+    if not chunks:
+        chunks = extract_and_chunk_pdfs(fallback_path)
+
+    if not chunks:
+        return None
+
     embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
-    
+
     if os.path.exists(db_path) and os.listdir(db_path):
         vectorstore = Chroma(persist_directory=db_path, embedding_function=embeddings)
     else:
@@ -352,6 +350,13 @@ if "active_query" not in st.session_state:
     st.session_state.active_query = ""
 
 components = load_rag_engine_v2()
+
+if components is None:
+    st.warning(
+        "⚠️ No se encontraron archivos PDF en `data/raw/` ni en `data/`. "
+        "Asegúrate de subir los informes técnicos de la NASA en PDF a tu repositorio de GitHub."
+    )
+    st.stop()
 
 # -------------------------------------------------------------------
 # 3. BARRA LATERAL (CONTROL DE MISIÓN)
