@@ -6,11 +6,15 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 
-if not chunks:
-    st.warning("⚠️ No se encontraron PDFs en la carpeta de datos. Por favor, añade informes técnicos de la NASA en la carpeta `data/` para inicializar el RAG.")
-else:
-    vectorstore = build_vector_store(chunks, persist_dir=db_path)
+# 1. Primero ejecutas la extracción para poblar la variable 'chunks'
+chunks = extract_and_chunk_pdfs(pdf_folder)
 
+# 2. Recién después puedes evaluarla de forma segura
+if not chunks:
+    st.warning("⚠️ No se encontraron fragmentos o PDFs en la carpeta de datos. Por favor, añade informes técnicos de la NASA.")
+else:
+    # Continuar con la construcción del vector store y motores RAG...
+    vectorstore = build_vector_store(chunks, persist_dir=db_path)
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(CURRENT_DIR) if os.path.basename(CURRENT_DIR).lower() == "src" else CURRENT_DIR
 SRC_DIR = os.path.join(PROJECT_ROOT, "src")
