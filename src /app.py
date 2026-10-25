@@ -1,4 +1,14 @@
 ﻿import os
+import streamlit as st
+
+# 1. Importa la función desde ingestion.py
+from ingestion import extract_and_chunk_pdfs, build_vector_store
+
+# 2. Define la ruta de la carpeta de PDFs antes de usarla
+pdf_folder = "data"  # o la ruta relativa que estés utilizando
+
+# 3. Ahora sí, llama a la función de forma segura
+chunks = extract_and_chunk_pdfs(pdf_folder)
 import sys
 import time
 import streamlit as st
