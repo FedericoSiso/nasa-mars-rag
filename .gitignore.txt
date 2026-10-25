@@ -1,0 +1,29 @@
+# Python / Entornos Virtuales
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+
+# Base de datos vectorial local (Se reconstruye automáticamente)
+chroma_db/
+
+# Datos binarios pesados y datasets generados
+data/raw/
+data/eval_dataset.json
+
+# Credenciales, Secretos y Variables de Entorno
+.env
+.streamlit/secrets.toml
+
+# IDEs y Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
