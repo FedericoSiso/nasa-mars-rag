@@ -4,6 +4,7 @@ from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from ingest import extract_and_chunk_pdfs
 
 def extract_and_chunk_pdfs(pdf_folder):
     # Si la carpeta no existe, la creamos para evitar errores
