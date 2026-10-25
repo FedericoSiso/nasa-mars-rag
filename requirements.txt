@@ -4,6 +4,7 @@ langchain-text-splitters
 langchain-community
 langchain-huggingface
 langchain-chroma
+langchain-openai
 chromadb
 sentence-transformers
 pymupdf
