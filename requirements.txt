@@ -2,6 +2,7 @@ streamlit
 langchain
 langchain-text-splitters
 langchain-community
+langchain-huggingface
 chromadb
 sentence-transformers
 pymupdf
