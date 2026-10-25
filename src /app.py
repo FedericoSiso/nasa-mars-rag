@@ -11,7 +11,6 @@ pdf_folder = "data"  # o la ruta relativa que estés utilizando
 chunks = extract_and_chunk_pdfs(pdf_folder)
 import sys
 import time
-import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
