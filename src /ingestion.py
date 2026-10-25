@@ -5,8 +5,15 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
-def extract_and_chunk_pdfs(pdf_folder: str) -> list[Document]:
-    raw_docs = []
+def extract_and_chunk_pdfs(pdf_folder):
+    # Si la carpeta no existe, la creamos para evitar errores
+    if not os.path.exists(pdf_folder):
+        os.makedirs(pdf_folder, exist_ok=True)
+        return []
+    
+    files = os.listdir(pdf_folder)
+    if not files:
+        return []
     
     for filename in os.listdir(pdf_folder):
         if filename.endswith(".pdf"):
