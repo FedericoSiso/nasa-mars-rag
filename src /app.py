@@ -6,6 +6,11 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 
+if not chunks:
+    st.warning("⚠️ No se encontraron PDFs en la carpeta de datos. Por favor, añade informes técnicos de la NASA en la carpeta `data/` para inicializar el RAG.")
+else:
+    vectorstore = build_vector_store(chunks, persist_dir=db_path)
+
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(CURRENT_DIR) if os.path.basename(CURRENT_DIR).lower() == "src" else CURRENT_DIR
 SRC_DIR = os.path.join(PROJECT_ROOT, "src")
