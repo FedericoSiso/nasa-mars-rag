@@ -1,0 +1,98 @@
+[
+  {
+    "id": "in_domain_1",
+    "type": "in_domain",
+    "question": "What is the specific operational role of AIAA and NASA regarding inflation factor Zubrin Robert Review?",
+    "ground_truth": "Utilization\", Oct. 1, 1996 \n5.\nAnalysis performed by SN/G. Badhwar and Boeing/B. Atwell. \n6.\nInformation found at website: http ://www. lpi.usra. edulexpmoonlApollo 12/Al 2 surfops.html \n7.\nA. Ignatiev and D. Criswell, \"Solar Energy from the Moon\", Energy & \nNanotechnology Workshop II: Prospects for...",
+    "expected_source": "NASA_20110024178_2005.pdf",
+    "expected_page": 48
+  },
+  {
+    "id": "in_domain_2",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for plications Failure mitigation approach Development?",
+    "ground_truth": "— Autonomous control & failure recovery\n— Long-duration operation (>300 days for Mars; 3 years for lunar)\n• High reliability and minimum (zero) maintenance\n— High reliability due to no (or minimal) maintenance capability for pre-deployed and\nrobotic mission applications\n— Failure mitigation approach...",
+    "expected_source": "NASA_20100021362_2010.pdf",
+    "expected_page": 7
+  },
+  {
+    "id": "in_domain_3",
+    "type": "in_domain",
+    "question": "What is the specific operational role of LEO and JSC regarding Height Liftoff Height Liftoff Height?",
+    "ground_truth": "120\nLunar\nLander\nEarth Departure\nCrew\nLander\n90\night in Meters\nUpper Stage\n(1 J-2X)\n127Mt LOx/LH2\nEarth Departure\nStage (EDS) (1 J-2X)\n226Mt lb LOx/LH2\nS-IVB\n(1 J-2 engine)\n110Mt Lox/LH2\n60\nerall Vehicle He\nCore Stage\n(5 RS-68 Engines)\n1410Mt LOx/LH2\nS-II\n(5 J-2 engines)\n450Mt LOx/LH2\n30\nOve\n5-Segme...",
+    "expected_source": "NASA_20090020653_2009.pdf",
+    "expected_page": 8
+  },
+  {
+    "id": "in_domain_4",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for offset steering integrated project allows?",
+    "ground_truth": "American Institute of Aeronautics and Astronautics \n \n \n12\nFigure 14.  RP15 Rover Frame assembly \nincredible progress made in a very short amount of \ntime. Figures 13 & 14 illustrate subsystems \nmanufacturing and development leading to the \nrover build \n \nThe RP15 approach matured many of the \nsubsy...",
+    "expected_source": "NASA_20150018395_2015.pdf",
+    "expected_page": 12
+  },
+  {
+    "id": "in_domain_5",
+    "type": "in_domain",
+    "question": "What is the specific operational role of ISRU (14 days) regarding erably greater required product produced?",
+    "ground_truth": "2020 for Mars\n__________________________________\nSingle Base w/forays vs Multzple individual missions. The extraction and processing of resources \nwill require both ISRU and power generation 'infrastructure'. A critical metric for measuring the \nbenefit and impact of ISRU on missions is 'mass of pro...",
+    "expected_source": "NASA_20110024178_2005.pdf",
+    "expected_page": 13
+  },
+  {
+    "id": "in_domain_6",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for readily available propellants Detennines support?",
+    "ground_truth": "Is long-term human presence on the Moon a goal?\n2010 to 2015\nDetermines if Lunar ISRIJ is only a \nprecursor for Mars, and determines \nrelevant technologies and operating \nenvironments \nIs water readily available on the Moon for propellants and\n2010 to 2012\nDetermines long term sites for Lunar \nlife ...",
+    "expected_source": "NASA_20110024178_2005.pdf",
+    "expected_page": 11
+  },
+  {
+    "id": "in_domain_7",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for durations increase accumulated increases ability?",
+    "ground_truth": "hardware. \n• Reduction in mission & crew risk due to increased shielding. As stated under Mass Reduction \nBenefits, the mass of radiation shielding launched is balanced against the acceptable risk for crew \nexposure to solar events and general cosmic background radiation. As surface mission duration...",
+    "expected_source": "NASA_20110024178_2005.pdf",
+    "expected_page": 8
+  },
+  {
+    "id": "in_domain_8",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for ations Operations Reduces launch increases?",
+    "ground_truth": "^^p\\oCO^;pf\nrry=A \nISRU Enables Sustainable & Affordable\nTransportation & Surface Exploration\nOxygen, Water, & Propellant \nLander & Hopper Propellant\nv 3.5:1 to >5:1 mass \nfrom Lunar ISRU \nResupply & Servicing for Reuse\nsavings leverage\nfrom surface back\nto Low Earth Orbit\nv >70% of LSAM\nmass is pro...",
+    "expected_source": "NASA_20100021362_2010.pdf",
+    "expected_page": 20
+  },
+  {
+    "id": "in_domain_9",
+    "type": "in_domain",
+    "question": "What is the specific operational role of FSW and IMU regarding verages existing spacecraft functions enabling?",
+    "ground_truth": "independent, reusable Flight Software environment consisting of the core Flight Executive (cFE), Operating System \nAbstraction Layer (OSAL), and cFE compliant CFS Applications, illustrated in Figure 11. CFS allows re-use and \nleverages existing core spacecraft functions while enabling the developmen...",
+    "expected_source": "NASA_20150018395_2015.pdf",
+    "expected_page": 10
+  },
+  {
+    "id": "in_domain_10",
+    "type": "in_domain",
+    "question": "What technical constraints or design trade-offs are identified for hnologies commercialization dissimilar remediation Propellant?",
+    "ground_truth": "power, etc.\n• Substitutes sustainable\ninfrastructure cargo for\npropellant & consumable mass\nSpace\nResource\nUtilization\nSolves Terrestrial\nChallenges & Enables\nSpace Commercialization\n• In-situ fabrication of spare parts\n. Develops alternative • Provides infrastructure\nenables sustainability and self...",
+    "expected_source": "NASA_20100021362_2010.pdf",
+    "expected_page": 4
+  },
+  {
+    "id": "adversarial_1",
+    "type": "out_of_domain",
+    "question": "¿En qué fecha exacta alunizó el módulo lunar Eagle durante la misión Apolo 11 y cuántos kilos de roca lunar trajeron?",
+    "ground_truth": "ABSTENCIÓN: Los informes técnicos disponibles no contienen información suficiente para responder a esta consulta.",
+    "expected_source": null,
+    "expected_page": null
+  },
+  {
+    "id": "adversarial_2",
+    "type": "out_of_domain",
+    "question": "¿Cuál fue el costo total de fabricación del telescopio espacial James Webb en comparación con el Hubble?",
+    "ground_truth": "ABSTENCIÓN: Los informes técnicos disponibles no contienen información suficiente para responder a esta consulta.",
+    "expected_source": null,
+    "expected_page": null
+  }
+]
