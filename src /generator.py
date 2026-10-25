@@ -6,7 +6,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.runnables import RunnableLambda
 from langchain_openai import ChatOpenAI
 
-FALLBACK_GEMINI_KEY = "AQ.Ab8RN6I5JfQ7VhuEFtLzfl_STnPTdBK-qjwXIWPfz06q9HxEDw"
+FALLBACK_GEMINI_KEY = "TU-API-KEY"
 
 FREE_TIER_MODELS = [
     "gemini-2.0-flash",
