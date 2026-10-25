@@ -41,8 +41,10 @@ def extract_and_chunk_pdfs(pdf_folder):
     )
     return splitter.split_documents(raw_docs)
 
-def build_vector_store(chunks: list[Document], persist_dir: str = "./chroma_db"):
-    embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+def build_vector_store(chunks, persist_dir="./chroma_db"):
+    if not chunks:
+        raise ValueError("La lista de fragmentos (chunks) está vacía. Verifica que la carpeta 'data/' contenga archivos PDF válidos.")
+    
     vectorstore = Chroma.from_documents(
         documents=chunks,
         embedding=embeddings,
