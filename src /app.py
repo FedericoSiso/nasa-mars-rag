@@ -420,7 +420,7 @@ st.markdown("""
 # 5. CONSOLA DE BÚSQUEDA
 # -------------------------------------------------------------------
 query_input = st.text_input(
-    "🔎 CONSULTAR INFORMES TÉCNICOS DE LA NASA:",
+    "🔎 CONSULTAR INFORMES TÉCNICOS DE LA NASA EN INGLÉS:",
     value=st.session_state.active_query,
     placeholder="Escribe una consulta aeroespacial (ej. sistemas de soporte vital ECLSS, propulsión, radiación o ISRU)..."
 )
