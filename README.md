@@ -92,7 +92,7 @@ OPENAI_API_KEY = "sk-..."
 # o según el proveedor configurado en generator.py
 GEMINI_API_KEY = "AIza..."
 👨‍💻 Autor
-Federico Siso — Data Analyst & Analytics Engineering Lead
+Federico Siso — Data Analyst 
 
 GitHub: @FedericoSiso
 
